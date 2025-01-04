@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "name": "Planet Assault",
+    "rate": 4.8,
+    "img": "./src/img/Planet_Assault.webp",
+    "categories": ["Puzzle", "Brain Games"],
+    "new": true
+  },
+  {
+    "id": 2,
+    "name": "Marble Duel",
+    "rate": 4.5,
+    "img": "./src/img/Marble_duel.webp",
+    "categories": ["Strategy"],
+    "new": false
+  },
+  {
+    "id": 3,
+    "name": "Polarity",
+    "rate": 4.7,
+    "img": "./src/img/Polarity.webp",
+    "categories": ["Racing", "Arcade"],
+    "new": true
+  },
+  {
+    "id": 4,
+    "name": "Giviballs",
+    "rate": 4.6,
+    "img": "./src/img/Giviballs.webp",
+    "categories": ["Action"],
+    "new": false
+  },
+  {
+    "id": 5,
+    "name": "Doodle God: Fantasy World of Magic",
+    "rate": 4.4,
+    "img": "./src/img/Doogle_god.webp",
+    "categories": ["Arcade"],
+    "new": true
+  },
+  {
+    "id": 6,
+    "name": "Legend of Jewels",
+    "rate": 4.9,
+    "img": "./src/img/Legend_of_jewels.webp",
+    "categories": ["Puzzle", "Educational"],
+    "new": false
+  },
+  {
+    "id": 7,
+    "name": "7x7 Mania!",
+    "rate": 4.3,
+    "img": "./src/img/7+7_Mania.webp",
+    "categories": ["Strategy"],
+    "new": true
+  },
+  {
+    "id": 8,
+    "name": "Shadow Solitaire",
+    "rate": 4.7,
+    "img": "./src/img/Shadow_solitare.webp",
+    "categories": ["Racing"],
+    "new": true
+  },
+  {
+    "id": 9,
+    "name": "Dooble Devil!",
+    "rate": 4.8,
+    "img": "./src/img/Doogle_devil.webp",
+    "categories": ["Arcade", "Classic"],
+    "new": false
+  },
+  {
+    "id": 10,
+    "name": "Doodle God: Good Old Times",
+    "rate": 4.0,
+    "img": "./src/img/Doogle_god_old.webp",
+    "categories": ["Action", "Multiplayer"],
+    "new": true
+  },
+  {
+    "id": 11,
+    "name": "Doodle God: Vipmaumau",
+    "rate": 4.7,
+    "img": "./src/img/Vipmaumau.webp",
+    "categories": ["Action", "Multiplayer"],
+    "new": true
+  },{
+    "id": 12,
+    "name": "Challenging AI",
+    "rate": 3.9,
+    "img": "./src/img/Challenging_ai.webp",
+    "categories": ["Action", "Multiplayer"],
+    "new": true
+  }
+]

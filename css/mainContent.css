@@ -1,0 +1,139 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.main__body {
+    padding: 1rem;
+}
+.main__search {
+    position: relative;
+    display: flex;
+    align-items: center;    
+    margin: 2rem 1rem;
+  }
+  
+  .main__search-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #dfdfdf;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    padding-left: 2.5rem;
+    background-image: url(../src/img/SearchNormal.svg);
+    background-position: 10px 14px;
+    background-repeat: no-repeat;
+  }
+  
+  .main__search-input:focus {
+    border: 2px solid #9c9c9c;
+    outline: none;
+  }
+  
+  .main__search-button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .main__search:focus-within .main__search-button {
+    opacity: 1;
+    visibility: visible;
+  }
+  .main__search:focus-within .main__search-input {
+    background-image: url(../src/img/SearchHover.svg);
+  }
+  
+/*----------------type__games--------*/
+
+.type__games {
+    width: 100%;   
+}
+
+.type__games-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; 
+}
+
+.type__games-item {
+    width: 440px;
+    height: 178px;
+    border-radius: 20px;
+    background-image: url(../src/img/Top\ Games.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.type__games-item:nth-child(2) {
+    background-image: url(../src/img/Best\ Games.webp); 
+}
+.type__games-item:nth-child(3) {
+    background-image: url(../src/img/New\ Games.webp); 
+}  
+
+.game__section {
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.game__section-title {
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.game__section-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+}
+.game__section-item {
+ 
+}
+.product__image {
+  width: 256px;
+  height: 150px;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.product__discription {
+  display: flex;  
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.product__name {
+  max-width: 200px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+
+.main__discription {
+    padding: 2rem;
+}
+.main__discription > p:first-child {
+   margin-bottom: 1rem;
+
+}
+.cookies-link {
+    color: #F54042;
+    font-weight: 400;
+}
