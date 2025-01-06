@@ -5,22 +5,22 @@ fetch('../src/api/products.json')
   .then(products => {
     arrayProduct = products;
     console.log(products);
-    renderNewProducts(products);
-    renderTopProducts(products);
-    renderPopularGames(products)
+    renderSection('New Games', products.filter(product => product.new));
+    renderSection('Top Games', products.filter(product => product.rate >= 4.7));
+    renderSection('Popular Games', products.slice(0, 10));
   })
   .catch(error => console.error('Error loading products:', error));
 
-function renderNewProducts(products) {
+// Універсальна функція для рендерингу
+function renderSection(title, products) {
   const container = document.querySelector('.main__body');
-  const newProducts = products.filter(product => product.new);
 
-  if (newProducts.length === 0) return;
+  if (!products.length) return;
 
   const section = document.createElement('article');
   section.classList.add('game__section');
   section.innerHTML = `
-    <h2 class="game__section-title">New Games</h2>
+    <h2 class="game__section-title">${title}</h2>
     <ul class="game__section-list"></ul>
   `;
 
@@ -28,7 +28,7 @@ function renderNewProducts(products) {
 
   const list = section.querySelector('.game__section-list');
 
-  newProducts.forEach(product => {
+  products.forEach(product => {
     const productItem = `
       <li class="game__section-item">
         <div class="product__image" style="background-image: url('${product.img}');"> </div>
@@ -42,117 +42,103 @@ function renderNewProducts(products) {
   });
 }
 
-function renderTopProducts(products) {
-  const container = document.querySelector('.main__body');
-  const topProducts = products.filter(product => product.rate >= 4.7);
-
-  if (topProducts.length === 0) return;
-
-  const section = document.createElement('article');
-  section.classList.add('game__section');
-  section.innerHTML = `
-    <h2 class="game__section-title">Top Games</h2>
-    <ul class="game__section-list"></ul>
-  `;
-
-  container.appendChild(section);
-
-  const list = section.querySelector('.game__section-list');
-
-  topProducts.forEach(product => {
-    const productItem = `
-      <li class="game__section-item">
-      <div class="product__image" style="background-image: url('${product.img}');"> </div>        
-        <div class="product__discription">
-          <h2 class="product__name">${product.name}</h2>
-          <p class="product__rate">${product.rate}</p>
-        </div>
-      </li>
-    `;
-    list.innerHTML += productItem;
-  });
-}
-
-function renderPopularGames(products) {
-  const container = document.querySelector('.main__body');
-
-  if (products.length === 0) return;
-
-  const section = document.createElement('article');
-  section.classList.add('game__section');
-  section.innerHTML = `
-    <h2 class="game__section-title">Popular Games</h2>
-    <ul class="game__section-list"></ul>
-  `;
-
-  container.appendChild(section);
-  const list = section.querySelector('.game__section-list');
-
-  products.slice(0, 10).forEach(product => {
-    const productItem = `
-      <li class="game__section-item">
-      <div class="product__image" style="background-image: url('${product.img}');"> </div>        
-        <div class="product__discription">
-          <h2 class="product__name">${product.name}</h2>
-          <p class="product__rate">${product.rate}</p>
-        </div>
-      </li>
-    `;
-    list.innerHTML += productItem;
-  });
-}
-
-function renderBESTGames(products) {
-  const container = document.querySelector('.main__body');
-
-  if (products.length === 0) return;
-
-  const section = document.createElement('article');
-  section.classList.add('game__section');
-  section.innerHTML = `
-    <h2 class="game__section-title">Best Games</h2>
-    <ul class="game__section-list"></ul>
-  `;
-
-  container.appendChild(section);
-  const list = section.querySelector('.game__section-list');
-
-  products.forEach(product => {
-    const productItem = `
-      <li class="game__section-item">
-      <div class="product__image" style="background-image: url('${product.img}');"> </div>        
-        <div class="product__discription">
-          <h2 class="product__name">${product.name}</h2>
-          <p class="product__rate">${product.rate}</p>
-        </div>
-      </li>
-    `;
-    list.innerHTML += productItem;
-  });
-}
-
+// Обробка кнопок
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.main__body');
   const buttonActions = {
-    top: renderTopProducts,
-    new: renderNewProducts,
-    best: renderBESTGames,
+    top: {
+      title: 'Top Games',
+      filter: products => products.filter(product => product.rate >= 4.7),
+    },
+    new: {
+      title: 'New Games',
+      filter: products => products.filter(product => product.new),
+    },
+    best: {
+      title: 'Best Games',
+      filter: products => products.slice(0, 10),
+    },
+    pazzle: {
+      title: 'Pazzle Games',
+      filter: products => products.filter(product => product.categories.includes('Puzzle')),
+    },
+    strategy: {
+      title: 'Strategy Games',
+      filter: products => products.filter(product => product.categories.includes('Strategy')),
+    },
+    racing: {
+      title: 'Racing Games',
+      filter: products => products.filter(product => product.categories.includes('Racing')),
+    },
+    action: {
+      title: 'Action Games',
+      filter: products => products.filter(product => product.categories.includes('Action')),
+    },
+    arcade: {
+      title: 'Arcade Games',
+      filter: products => products.filter(product => product.categories.includes('Arcade')),
+    },
+    arcad: {
+      title: 'Arcade Games',
+      filter: products => products.filter(product => product.categories.includes('Arcade')),
+    },
+    dd: {
+      title: '2D Games',
+      filter: products => products.filter(product => product.categories.includes('2d')),
+    },
+    ddd: {
+      title: '3d Games',
+      filter: products => products.filter(product => product.categories.includes('3d')),
+    },
+    actions: {
+      title: 'Action Games',
+      filter: products => products.filter(product => product.categories.includes('Action')),
+    },
+    adventure: {
+      title: 'Adventure Games',
+      filter: products => products.filter(product => product.categories.includes('Adventure Games')),
+    },
+    animale: {
+      title: 'Animale Games',
+      filter: products => products.filter(product => product.categories.includes('Animale Games')),
+    },
+    art: {
+      title: 'Art Games',
+      filter: products => products.filter(product => product.categories.includes('Art Games')),
+    },
+    bike: {
+      title: 'Bike Games',
+      filter: products => products.filter(product => product.categories.includes('Bike Games')),
+    },
+    car: {
+      title: 'Car Games',
+      filter: products => products.filter(product => product.categories.includes('Car Games')),
+    },
+    cards: {
+      title: 'Cards Games',
+      filter: products => products.filter(product => product.categories.includes('Cards Games')),
+    },
+    cartoon: {
+      title: 'Cartoon Games',
+      filter: products => products.filter(product => product.categories.includes('Cartoon Games')),
+    },
   };
 
-  
   if (container) {
     Object.keys(buttonActions).forEach(buttonId => {
       const button = document.querySelector(`#${buttonId}`);
 
       if (button) {
         button.addEventListener('click', () => {
-          container.innerHTML = ''; 
-          buttonActions[buttonId](arrayProduct); 
+          const { title, filter } = buttonActions[buttonId];
+          container.innerHTML = '';
+          renderSection(title, filter(arrayProduct)); 
         });
       }
     });
   }
 });
+
 
 
 

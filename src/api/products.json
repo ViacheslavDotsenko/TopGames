@@ -86,12 +86,30 @@
     "img": "./src/img/Vipmaumau.webp",
     "categories": ["Action", "Multiplayer"],
     "new": true
-  },{
+  },
+  {
     "id": 12,
     "name": "Challenging AI",
     "rate": 3.9,
     "img": "./src/img/Challenging_ai.webp",
     "categories": ["Action", "Multiplayer"],
     "new": true
+  },
+  {
+    "id": 13,
+    "name": "Challenging AI",
+    "rate": 4.9,
+    "img": "./src/img/Challenging_ai.webp",
+    "categories": ["2d", "Multiplayer"],
+    "new": true
+  },
+  {
+    "id": 14,
+    "name": "Crazy Golf",
+    "rate": 4.7,
+    "img": "./src/img/crazyGolf.webp",
+    "categories": ["3d", "Multiplayer"],
+    "new": true
   }
 ]
+
