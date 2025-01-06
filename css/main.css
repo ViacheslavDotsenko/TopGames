@@ -32,49 +32,54 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   margin: 0;
 }
+
 p {
   margin: 0;
 }
+
 input, button, textarea, select {
   font-family: inherit;
   font-size: inherit;
   border: none;
   outline: none;
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
 
 .wrapper {
-    max-width: 1640px;
-    width: 100%;       
-    margin: 0 auto;    
-    padding: 0 20px; 
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;  
+  max-width: 1640px;
+  width: 100%;       
+  margin: 0 auto;    
+  padding: 0 20px; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;  
 }
 
 .btn {
   width: 100%;
   max-width: 239px;
-
 }
 
 .active {
+  height: auto;
   position: relative;
-  color:#F54042;
+ color: #F54042;
 }
 
 .active::before {
-
+  position: absolute;
+  content: "";
+  height: 100%;
+  left: -10px;
+  border: 1px solid #F54042;
 }
-
 
 @media  (max-width: 980px) {
   .btn {   
     max-width: 320px;  
-  }
-  
+  }  
 }

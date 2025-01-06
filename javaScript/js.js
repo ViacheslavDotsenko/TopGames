@@ -1,6 +1,9 @@
+let arrayProduct = [];
+
 fetch('../src/api/products.json')
   .then(response => response.json())
   .then(products => {
+    arrayProduct = products;
     console.log(products);
     renderNewProducts(products);
     renderTopProducts(products);
@@ -99,6 +102,30 @@ function renderPopularGames(products) {
   });
 
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.main__body');
+  const buttonActions = {
+    top: renderTopProducts,
+    new: renderNewProducts,
+    best: renderPopularGames,
+  };
+
+  
+  if (container) {
+    Object.keys(buttonActions).forEach(buttonId => {
+      const button = document.querySelector(`#${buttonId}`);
+
+      if (button) {
+        button.addEventListener('click', () => {
+          container.innerHTML = ''; 
+          buttonActions[buttonId](arrayProduct); 
+        });
+      }
+    });
+  }
+});
+
+
 
 /* header animation menu list*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -109,20 +136,17 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const allNavItems = document.querySelectorAll('nav ul li');
-
-  // Функція для перевірки, чи будь-яке меню відкрите
+ 
   const isAnyMenuOpen = () => 
     toggleElements.some(({ target, openClass }) => {
       const targetElement = document.querySelector(target);
       return targetElement && targetElement.classList.contains(openClass);
     });
-
-  // Видалення класу "active" зі всіх <li>
+ 
   const removeActiveClassFromAll = () => {
     allNavItems.forEach(navItem => navItem.classList.remove('active'));
   };
 
-  // Додавання обробників подій для відкриття/закриття меню
   toggleElements.forEach(({ trigger, target, openClass }) => {
     const triggerElement = document.querySelector(trigger);
     const targetElement = document.querySelector(target);
@@ -131,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
       triggerElement.addEventListener('click', () => {
         targetElement.classList.toggle(openClass);
 
-        // Якщо жодне меню не відкрите, видаляємо клас "active" зі всіх <li>
         if (!isAnyMenuOpen()) {
           removeActiveClassFromAll();
         }
@@ -139,10 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Логіка для роботи з класом "active" на елементах <li>
+  
   allNavItems.forEach(item => {
     item.addEventListener('click', () => {
-      // Додавати клас "active" тільки якщо меню відкрите
+      
       if (isAnyMenuOpen()) {
         allNavItems.forEach(navItem => navItem.classList.remove('active'));
         item.classList.add('active');
