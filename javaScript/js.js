@@ -100,14 +100,43 @@ function renderPopularGames(products) {
     `;
     list.innerHTML += productItem;
   });
-
 }
+
+function renderBESTGames(products) {
+  const container = document.querySelector('.main__body');
+
+  if (products.length === 0) return;
+
+  const section = document.createElement('article');
+  section.classList.add('game__section');
+  section.innerHTML = `
+    <h2 class="game__section-title">Best Games</h2>
+    <ul class="game__section-list"></ul>
+  `;
+
+  container.appendChild(section);
+  const list = section.querySelector('.game__section-list');
+
+  products.forEach(product => {
+    const productItem = `
+      <li class="game__section-item">
+      <div class="product__image" style="background-image: url('${product.img}');"> </div>        
+        <div class="product__discription">
+          <h2 class="product__name">${product.name}</h2>
+          <p class="product__rate">${product.rate}</p>
+        </div>
+      </li>
+    `;
+    list.innerHTML += productItem;
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.main__body');
   const buttonActions = {
     top: renderTopProducts,
     new: renderNewProducts,
-    best: renderPopularGames,
+    best: renderBESTGames,
   };
 
   
