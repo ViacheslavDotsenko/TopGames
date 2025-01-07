@@ -13,7 +13,7 @@
         <aside class="sideBar">
             <header class="header">
                 <div class="header__container">                 
-                  <a href="/" class="header__logo">
+                  <a href="/" class="header__logo" id="topApp">
                     <img src="./src/img/logo.svg" alt="Назва компанії">
                   </a>                   
                   <nav class="header__menu">
@@ -109,11 +109,10 @@
                     </ul>
                   </nav>
                 </div>
-              </header>
-              
+              </header>              
             <footer class="footer">
                 <ul class="footer__body">
-                    <li>About</li>
+                    <li id="about">About</li>
                     <li>Contact</li>
                     <li>Privacy Policy</li>
                     <li>Terms and Conditions</li>
@@ -121,23 +120,25 @@
             </footer>
         </aside>
         <main class="main">
-            <section class="main__body">
-                <form class="main__search" role="search">                
-                    <input 
-                      type="text" 
-                      class="main__search-input" 
-                      placeholder="Search game..." 
-                      aria-label="Введіть текст для пошуку">
-                    <button type="submit" class="main__search-button">search</button>
-                  </form>
-                  <article class="type__games">
-                    <ul class="type__games-list">
-                      <li class="type__games-item"></li>
-                      <li class="type__games-item"></li>
-                      <li class="type__games-item"></li>
-                    </ul>
-                  </article>                 
-            </section>            
+          <div>
+            <form class="main__search" role="search">                
+              <input 
+                type="text" 
+                class="main__search-input" 
+                placeholder="Search game..." 
+                aria-label="Введіть текст для пошуку">
+              <button type="submit" class="main__search-button">search</button>
+            </form>
+              <section class="main__body">                  
+                    <article class="type__games">
+                      <ul class="type__games-list">
+                        <li class="type__games-item"></li>
+                        <li class="type__games-item"></li>
+                        <li class="type__games-item"></li>
+                      </ul>
+                    </article>                 
+              </section> 
+          </div>                     
               <article class="main__discription">
                 <p>TopApps - Download Free Android Games and Apps
                     Looking to download free full version games and apps for your Android phone ot tablet? At TopApps you will find top free games and apps for any Android phone or table. No time limits, no trials, download online and play offline, legal and safe. Fast and secure app downloads.</p>

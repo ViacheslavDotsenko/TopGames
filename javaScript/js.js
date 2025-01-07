@@ -40,12 +40,60 @@ function renderSection(title, products) {
     `;
     list.innerHTML += productItem;
   });
-}
+};
 
-// Обробка кнопок
+function renderSectionAbout () {
+  const container = document.querySelector('.main__body');
+  container.innerHTML = '';
+
+  const section = document.createElement('article');
+  section.classList.add('about__section');
+  section.innerHTML = `
+    <h4 class="about_section-pretitle"><span>Home</span> /</h4>
+    <h2 class="about__section-title">About TopApps</h2>
+    <h3 class="about__section-subtitle">At TopApps, you can be assured that all Android games provided here are for free, full versions, legal and safe to download.</h3>
+    <ul class="about__section-list">
+    <li class="about__section-item">While GameTop is the place for PC games, TopApps is fully dedicated towards Android games. Given the reputation of GameTop, we are able to license many games for free that you may have to pay for via other sources.</li>
+    <li class="about__section-item">Do not be surprised to see your favorite games for free here! We are going to have a vast collection of games for all categories be it Puzzle, Hidden Object, Racing or more!</li>
+    <li class="about__section-item">So check back often to see the new games that we license every now and then.</li>
+    </ul>
+  `;
+
+  container.appendChild(section);
+
+};
+document.addEventListener('DOMContentLoaded', () => {
+  const about = document.querySelector("#about");
+  if(about){
+    about.addEventListener("click", () => {
+      renderSectionAbout();
+    })
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.main__body');
   const buttonActions = {
+    topApp: {
+      title: 'Top App',
+      filter: products => {
+        return [
+          {
+            title: 'Top Games',
+            data: products.filter(product => product.rate >= 4.7),
+          },
+          {
+            title: 'New Games',
+            data: products.filter(product => product.new),
+          },
+          {
+            title: 'Best Games',
+            data: products.slice(0, 10),
+          },
+        ];
+      },
+    },
+    
     top: {
       title: 'Top Games',
       filter: products => products.filter(product => product.rate >= 4.7),
