@@ -5,7 +5,7 @@ max-width: 900px;
     margin-bottom: 1rem;
 }
 
-.about_section-pretitle span {
+.about_section-pretitle > a {
     color: #f23a3a;
 }
 .about__section-title {

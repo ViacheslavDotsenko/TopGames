@@ -1,21 +1,25 @@
+"use strict"
+import { renderSectionContactUs } from "./tamplates.js";
+
+
 let arrayProduct = [];
- let local = "../src/api/products.json ";
+ 
 fetch('https://gist.githubusercontent.com/ViacheslavDotsenko/92e1688d6c32d84b463de8aed59c89e7/raw/aa460981fd6e08d72d0124043c9bce83e9453f06/products.json')
   .then(response => response.json())
   .then(products => {
     arrayProduct = products;
     console.log(products);
-    renderSection('New Games', products.filter(product => product.new));
-    renderSection('Top Games', products.filter(product => product.rate >= 4.7));
-    renderSection('Popular Games', products.slice(0, 10));
+    renderSection('New Games', arrayProduct.filter(product => product.new));
+    renderSection('Top Games', arrayProduct.filter(product => product.rate >= 4.7));
+    renderSection('Popular Games', arrayProduct.slice(0, 10));
   })
   .catch(error => console.error('Error loading products:', error));
 
 // Універсальна функція для рендерингу
-function renderSection(title, products) {
+function renderSection(title, arrayProduct) {
   const container = document.querySelector('.main__body');
 
-  if (!products.length) return;
+  if (!arrayProduct.length) return;
 
   const section = document.createElement('article');
   section.classList.add('game__section');
@@ -28,7 +32,7 @@ function renderSection(title, products) {
 
   const list = section.querySelector('.game__section-list');
 
-  products.forEach(product => {
+  arrayProduct.forEach(product => {
     const productItem = `
       <li class="game__section-item">
         <div class="product__image" style="background-image: url('${product.img}');"> </div>
@@ -49,7 +53,7 @@ function renderSectionAbout () {
   const section = document.createElement('article');
   section.classList.add('about__section');
   section.innerHTML = `
-    <h4 class="about_section-pretitle"><span>Home</span> /</h4>
+    <h4 class="about_section-pretitle" id="home"><a href="../index.html">Home</a> /</h4>
     <h2 class="about__section-title">About TopApps</h2>
     <h3 class="about__section-subtitle">At TopApps, you can be assured that all Android games provided here are for free, full versions, legal and safe to download.</h3>
     <ul class="about__section-list">
@@ -64,10 +68,24 @@ function renderSectionAbout () {
 };
 document.addEventListener('DOMContentLoaded', () => {
   const about = document.querySelector("#about");
+  const contact = document.querySelector("#contact");
+  const container = document.querySelector('.main__body');
   if(about){
     about.addEventListener("click", () => {
       renderSectionAbout();
     })
+  }
+  if(contact) {
+    contact.addEventListener("click", () => {
+      container.innerHTML = '';
+      const section = document.createElement('article');
+      section.classList.add('contactUs__section');
+      section.innerHTML = renderSectionContactUs();
+
+      container.appendChild(section);
+
+    });
+
   }
 });
 

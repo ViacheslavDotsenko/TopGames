@@ -1,0 +1,35 @@
+
+.contactUs__section {
+    padding: 1rem 0;
+    display: flex;
+}
+.contactUs__address {
+    flex: 0 0 50%;
+}
+
+.contactUs__mainForm {
+    flex: 0 0 50%;
+}
+.contactUs__section-pretitle  {
+    margin-bottom: 1rem;
+}
+.contactUs__section-pretitle > a {
+color: #e71d1d;
+}
+.contactUs__section-title {
+    font-weight: 700;
+    font-size: 34px;
+    margin-bottom: 2rem;
+}
+.contactUs__section-subtitle {
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.contactUs__section-title-address {
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 2rem;
+}
+.contactUs__section-item:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
