@@ -1,6 +1,6 @@
 let arrayProduct = [];
-
-fetch('../src/api/products.json')
+ let local = "../src/api/products.json ";
+fetch('https://gist.githubusercontent.com/ViacheslavDotsenko/92e1688d6c32d84b463de8aed59c89e7/raw/aa460981fd6e08d72d0124043c9bce83e9453f06/products.json')
   .then(response => response.json())
   .then(products => {
     arrayProduct = products;
